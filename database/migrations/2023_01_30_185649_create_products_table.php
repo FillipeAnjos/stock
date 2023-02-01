@@ -13,28 +13,71 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('descricao');
-            $table->string('categoria');
-            $table->string('marca');
-            $table->integer('quantidade');
-            $table->double('preco', 8, 2);
-            $table->integer('garantia');
-            $table->boolean('status');
-            $table->string('fornecedor');
-            $table->string('observacao');
-            $table->timestamps();
-        });
+        $this->createCategories();
+        $this->createBrand();
+        $this->createProvider();
+        $this->createProducts();
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::dropIfExists('products');
     }
+
+    /* 
+        ****************************************************************************************************
+    */
+
+    public function createProducts(){
+        Schema::create('produtos', function (Blueprint $table) {
+            $table->id();
+            $table->string('produto');
+            $table->string('descricao');
+            $table->string('tamanho');
+            $table->string('cor');
+            $table->integer('quantidade');
+            $table->double('valor', 8, 2);
+            $table->integer('garantia');
+            $table->integer('marca_id');
+            $table->integer('categoria_id');
+            $table->integer('fornecedor_id');
+            $table->string('observacao');
+            $table->boolean('status');
+            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->foreign('marca_id')->references('id')->on('marcas');
+            $table->foreign('fornecedor_id')->references('id')->on('fornecedores');
+            $table->timestamps();
+        });
+    }
+
+    public function createCategories(){
+        Schema::create('categorias', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->string('descricao');
+            $table->timestamps();
+        });
+    }
+
+    public function createBrand(){
+        Schema::create('marcas', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->timestamps();
+        });
+    }
+
+    public function createProvider(){
+        Schema::create('fornecedores', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->string('email');
+            $table->string('cnpj');
+            $table->string('razao');
+            $table->string('telefone');
+            $table->string('falarcom');
+            $table->timestamps();
+        });
+    }
+
 }
