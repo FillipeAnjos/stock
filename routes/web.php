@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\ProviderController;
+
 // Rota abaixo é a rota inicial do sistema
 Route::get('/', function () {
 
@@ -30,19 +32,35 @@ Route::get('/inicio', function(){
     return view('inicio');
 });
 
-// Rotar abaixo serve para listar ou cadastrar todos os produtos cadastrados com seus filtros
-Route::get('/products', function(){
-    return view('products/produtos');
-});
-
 // Rotar abaixo só poderá ser listada por administradores do sistema
 Route::get('users', function(){
     return view('/users/usuarios');
 });
 
+// Rotar abaixo serve para listar ou cadastrar todos os produtos cadastrados com seus filtros
+Route::get('/products', function(){
+    return view('products/produtos');
+});
+
+// Rotar abaixo serve para criar os fornecedores 
+Route::get('/create-provider', function(){
+    return view('providers/criar-fornecedor');
+});
+
+/* 
+    ******************************************************
+    ******************** Controller's ********************
+    ******************************************************
+*/
+
+Route::post('/save-provider', [ProviderController::class, 'save']);
 
 
-
+/* 
+    ******************************************************
+    ************************ Auth ************************
+    ******************************************************
+*/
 
 Route::middleware([
     'auth:sanctum',
