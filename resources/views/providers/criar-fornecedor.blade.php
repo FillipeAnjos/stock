@@ -18,7 +18,7 @@
             <h4><b>Criar Fornecedor</b></h4>
             <p></p>
             <div class="input-group input-group-sm mb-3">
-                <a href="/" type="submit" class="btn btn-primary">&nbsp;&nbsp; Voltar &nbsp;&nbsp;</a>
+                <a href="provider" type="submit" class="btn btn-primary">&nbsp;&nbsp; Voltar &nbsp;&nbsp;</a>
             </div>
 
         </div>

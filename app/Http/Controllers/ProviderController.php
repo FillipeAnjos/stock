@@ -25,6 +25,30 @@ class ProviderController extends Controller
         $this->saveProviderModel = $providerModel;
     }
 
+    public function index(){
+
+        $fornecedores = ProviderModel::all();
+
+        return view('providers/index', compact('fornecedores'));
+
+    }
+
+    public function destroy($id){
+
+        //DELETE
+        $fornecedor = ProviderModel::findOrFail($id);
+        $fornecedor->delete();
+
+        return redirect()->back();
+
+    }
+
+    public function edit($id){
+        
+        dd($id);
+
+    }
+
     public function save(Request $request){
 
         if($request->nome == "" 

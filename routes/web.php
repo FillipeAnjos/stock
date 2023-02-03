@@ -42,6 +42,7 @@ Route::get('/products', function(){
     return view('products/produtos');
 });
 
+
 // Rotar abaixo serve para criar os fornecedores 
 Route::get('/create-provider', function(){
     return view('providers/criar-fornecedor');
@@ -52,7 +53,9 @@ Route::get('/create-provider', function(){
     ******************** Controller's ********************
     ******************************************************
 */
-
+Route::get('/provider', [ProviderController::class, 'index']);
+Route::get('/delete-provider/{id}', [ProviderController::class, 'destroy']);
+Route::get('/edit-provider/{id}', [ProviderController::class, 'edit']);
 Route::post('/save-provider', [ProviderController::class, 'save']);
 
 

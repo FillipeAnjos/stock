@@ -23,6 +23,7 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+        <script src="/js/aplicacao.js"></script>
     </head>
     <body>
 

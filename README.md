@@ -7,4 +7,4 @@ de expor meus conhecimentos, não sendo apropriado para uso comercial.
 
 ## Tecnologias 
 
-PHP / JavaScript / Laravel / Blade Engine / Bootstrap / PostgreSQL / Eloquent ORM
+PHP / Laravel / JavaScript / Blade Engine / Bootstrap / PostgreSQL / Eloquent ORM
