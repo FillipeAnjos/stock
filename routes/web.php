@@ -56,6 +56,7 @@ Route::get('/create-provider', function(){
 Route::get('/provider', [ProviderController::class, 'index']);
 Route::get('/delete-provider/{id}', [ProviderController::class, 'destroy']);
 Route::get('/edit-provider/{id}', [ProviderController::class, 'edit']);
+Route::post('/update-provider', [ProviderController::class, 'update']);
 Route::post('/save-provider', [ProviderController::class, 'save']);
 
 

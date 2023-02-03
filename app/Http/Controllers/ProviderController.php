@@ -44,8 +44,23 @@ class ProviderController extends Controller
     }
 
     public function edit($id){
+
+        $fornecedor = ProviderModel::find($id);
         
-        dd($id);
+        return view('providers/editar-fornecedor', compact('fornecedor'));
+
+    }
+
+    public function update(Request $request){
+
+        //PUT
+        $fornecedor = ProviderModel::findOrFail($request->id);
+        $fornecedor->update($request->all());
+
+        $fornecedor = ProviderModel::find($request->id);
+
+        Session::flash('fornecedor-success', 'Fornecedor atualizado com sucesso !!!');
+        return view('providers/editar-fornecedor', compact('fornecedor'));
 
     }
 
