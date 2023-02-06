@@ -69,6 +69,9 @@ Route::post('/save-provider', [ProviderController::class, 'save']);
 
 //Categorias
 Route::get('/category', [CategoryController::class, 'index']);
+Route::get('/delete-category/{id}', [CategoryController::class, 'destroy']);
+Route::get('/edit-category/{id}', [CategoryController::class, 'edit']);
+Route::post('/update-category', [CategoryController::class, 'update']);
 Route::post('/save-category', [CategoryController::class, 'save']);
 
 
