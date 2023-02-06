@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\CategoryController;
 
 // Rota abaixo é a rota inicial do sistema
 Route::get('/', function () {
@@ -48,16 +49,27 @@ Route::get('/create-provider', function(){
     return view('providers/criar-fornecedor');
 });
 
+// Rotar abaixo serve para criar as categorias 
+Route::get('/create-category', function(){
+    return view('categorys/criar-categoria');
+});
+
 /* 
     ******************************************************
     ******************** Controller's ********************
     ******************************************************
 */
+
+//Fornecedores
 Route::get('/provider', [ProviderController::class, 'index']);
 Route::get('/delete-provider/{id}', [ProviderController::class, 'destroy']);
 Route::get('/edit-provider/{id}', [ProviderController::class, 'edit']);
 Route::post('/update-provider', [ProviderController::class, 'update']);
 Route::post('/save-provider', [ProviderController::class, 'save']);
+
+//Categorias
+Route::get('/category', [CategoryController::class, 'index']);
+Route::post('/save-category', [CategoryController::class, 'save']);
 
 
 /* 
