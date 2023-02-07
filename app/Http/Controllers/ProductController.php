@@ -6,6 +6,9 @@ use Session;
 
 use Illuminate\Http\Request;
 use App\Models\ProductModel;
+use App\Models\CategoryModel;
+use App\Models\ProviderModel;
+use App\Models\brandModel;
 
 class ProductController extends Controller
 {
@@ -64,7 +67,21 @@ class ProductController extends Controller
 
     }
 
+    public function fetchData(){
+        
+        $categorias = CategoryModel::all();
+        $fornecedores = ProviderModel::all();
+        $marcas = brandModel::all();
+
+        return view('product/criar-produto', compact('categorias', 'fornecedores', 'marcas'));
+
+    }
+
     public function save(Request $request){
+
+        $categorias = CategoryModel::all();
+        $fornecedores = ProviderModel::all();
+        $marcas = brandModel::all();
 
         if($request->produto == "" ||
             $request->descricao == "" ||
@@ -73,10 +90,14 @@ class ProductController extends Controller
             $request->quantidade == "" ||
             $request->valor == "" ||
             $request->garantia == "" ||
+            $request->marca_id == "" ||
+            $request->categoria_id == "" ||
+            $request->fornecedor_id == "" ||
             $request->observacao == "" ||
             $request->status == ""){
-            Session::flash('produto-campos-vazios', 'Verifique seu cadastro. Não pode haver campos vazios.');
-            return view('product/criar-produto');
+
+                Session::flash('produto-campos-vazios', 'Verifique seu cadastro. Não pode haver campos vazios.');
+                return view('product/criar-produto', compact('categorias', 'fornecedores', 'marcas'));
         }
 
         // -----------------------------------------------------------------------------------------------------
@@ -86,14 +107,14 @@ class ProductController extends Controller
             'descricao' => $request->descricao,
             'tamanho' => $request->tamanho,
             'cor' => $request->cor,
-            'quantidade' => $request->quantidade,
+            'quantidade' => intval($request->quantidade),
             'valor' => $request->valor,
             'garantia' => $request->garantia,
-            'marca_id' => $request->marca_id,
-            'categoria_id' => $request->categoria_id,
-            'fornecedor_id' => $request->fornecedor_id,
+            'marca_id' => intval($request->marca_id),
+            'categoria_id' => intval($request->categoria_id),
+            'fornecedor_id' => intval($request->fornecedor_id),
             'observacao' => $request->observacao,
-            'status' => $request->status
+            'status' => true
 		]);
         
         if($produto){
@@ -102,7 +123,7 @@ class ProductController extends Controller
             Session::flash('produto-error', 'Desculpe. Ocorreu um erro ao cadastrar o produto.');
         }
 
-        return view('product/criar-produto');
+        return view('product/criar-produto', compact('categorias', 'fornecedores', 'marcas'));
 
     }
 }

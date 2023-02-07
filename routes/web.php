@@ -46,20 +46,22 @@ Route::get('/products', function(){
 });
 
 
-// Rotar abaixo serve para criar os fornecedores 
+// Rota abaixo serve para criar os fornecedores 
 Route::get('/create-provider', function(){
     return view('providers/criar-fornecedor');
 });
 
-// Rotar abaixo serve para criar as categorias 
+// Rota abaixo serve para criar as categorias 
 Route::get('/create-category', function(){
     return view('categorys/criar-categoria');
 });
 
-// Rotar abaixo serve para criar as marcas 
+// Rota abaixo serve para criar as marcas 
 Route::get('/create-brand', function(){
     return view('brands/criar-marca');
 });
+
+
 
 /* 
     ******************************************************
@@ -90,6 +92,10 @@ Route::post('/save-brand', [BrandController::class, 'save']);
 
 // Produto
 Route::get('/product', [ProductController::class, 'index']);
+
+Route::get('/create-product', [ProductController::class, 'fetchData']);
+Route::post('/save-product', [ProductController::class, 'save']);
+
 
 /* 
     ******************************************************
