@@ -39,7 +39,7 @@
                             <td>
                                 <span onclick="excluirMarca('{{ $marca->id }}')" type="button" class="btn btn-danger btn-sm">Excluir</span>
                                 &nbsp;
-                                <a href="edit-category/{{ $marca->id }}" type="button" class="btn btn-primary btn-sm">Editar</a>
+                                <a href="edit-brand/{{ $marca->id }}" type="button" class="btn btn-primary btn-sm">Editar</a>
                             </td>
                         </tr>
                     @endforeach
