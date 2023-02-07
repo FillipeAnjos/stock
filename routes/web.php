@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ProductController;
 
 // Rota abaixo é a rota inicial do sistema
 Route::get('/', function () {
@@ -87,6 +88,8 @@ Route::get('/edit-brand/{id}', [BrandController::class, 'edit']);
 Route::post('/update-brand', [BrandController::class, 'update']);
 Route::post('/save-brand', [BrandController::class, 'save']);
 
+// Produto
+Route::get('/product', [ProductController::class, 'index']);
 
 /* 
     ******************************************************

@@ -19,3 +19,10 @@ function excluirMarca(id){
         window.location.assign("delete-brand/"+id)
     }
 }
+
+// Função abaixo está no arquivo ---> views\product\index.blade.php
+function excluirProduto(id){
+    if(confirm("Deseja excluir essa Produto?")){
+        window.location.assign("delete-product/"+id)
+    }
+}
