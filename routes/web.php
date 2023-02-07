@@ -82,6 +82,7 @@ Route::post('/save-category', [CategoryController::class, 'save']);
 
 // Marcas
 Route::get('/brand', [BrandController::class, 'index']);
+Route::get('/delete-brand/{id}', [BrandController::class, 'destroy']);
 
 Route::post('/save-brand', [BrandController::class, 'save']);
 

@@ -12,3 +12,10 @@ function excluirCategoria(id){
         window.location.assign("delete-category/"+id)
     }
 }
+
+// Função abaixo está no arquivo ---> views\brand\index.blade.php
+function excluirMarca(id){
+    if(confirm("Deseja excluir essa Marca?")){
+        window.location.assign("delete-brand/"+id)
+    }
+}
