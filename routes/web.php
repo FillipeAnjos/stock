@@ -55,6 +55,11 @@ Route::get('/create-category', function(){
     return view('categorys/criar-categoria');
 });
 
+// Rotar abaixo serve para criar as marcas 
+Route::get('/create-brand', function(){
+    return view('brands/criar-marca');
+});
+
 /* 
     ******************************************************
     ******************** Controller's ********************
@@ -77,6 +82,8 @@ Route::post('/save-category', [CategoryController::class, 'save']);
 
 // Marcas
 Route::get('/brand', [BrandController::class, 'index']);
+
+Route::post('/save-brand', [BrandController::class, 'save']);
 
 
 /* 
