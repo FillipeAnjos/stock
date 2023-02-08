@@ -92,6 +92,7 @@ Route::post('/save-brand', [BrandController::class, 'save']);
 
 // Produto
 Route::get('/product', [ProductController::class, 'index']);
+Route::get('/delete-product/{id}', [ProductController::class, 'destroy']);
 
 Route::get('/create-product', [ProductController::class, 'fetchData']);
 Route::post('/save-product', [ProductController::class, 'save']);
