@@ -35,7 +35,7 @@
                     <th scope="col">Quantidade</th>
                     <th scope="col">Valor</th>
                     <th scope="col">Garantia</th>
-                    <th scope="col">Observação</th>
+                    {{--<th scope="col">Observação</th>--}}
                     <th scope="col">Status</th>
                     <th scope="col">Ação</th>
                     </tr>
@@ -51,7 +51,7 @@
                             <td>{{ $produto->quantidade }}</td>
                             <td>{{ $produto->valor }}</td>
                             <td>{{ $produto->garantia }}</td>
-                            <td>{{ $produto->observacao }}</td>
+                            {{--<td>{{ $produto->observacao }}</td>--}}
                             <td>{{ $produto->status }}</td>
                             <td>
                                 <span onclick="excluirProduto('{{ $produto->id }}')" type="button" class="btn btn-danger btn-sm">Excluir</span>
