@@ -49,8 +49,12 @@ class ProductController extends Controller
     public function edit($id){
 
         $produto = ProductModel::find($id);
+
+        $categorias = CategoryModel::all();
+        $fornecedores = ProviderModel::all();
+        $marcas = brandModel::all();
         
-        return view('product/editar-produto', compact('produto'));
+        return view('product/editar-produto', compact('produto', 'categorias', 'fornecedores', 'marcas'));
 
     }
 
@@ -62,8 +66,12 @@ class ProductController extends Controller
 
         $produto = ProductModel::find($request->id);
 
+        $categorias = CategoryModel::all();
+        $fornecedores = ProviderModel::all();
+        $marcas = brandModel::all();
+
         Session::flash('produto-success', 'Produto atualizado com sucesso !!!');
-        return view('product/editar-produto', compact('produto'));
+        return view('product/editar-produto', compact('produto', 'categorias', 'fornecedores', 'marcas'));
 
     }
 
