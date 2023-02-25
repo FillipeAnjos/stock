@@ -19,7 +19,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 
 // Rota abaixo é a rota inicial do sistema
-Route::get('/', function () {
+Route::get('/inicio', function () {
 
     $welcome = "Olá seja bem vindo(a)";
     $nome = "Fillipe dos Anjos";
@@ -31,7 +31,7 @@ Route::get('/', function () {
 });
 
 // Rota abaixo serve como teste
-Route::get('/inicio', function(){
+Route::get('/', function(){
     return view('inicio');
 });
 
