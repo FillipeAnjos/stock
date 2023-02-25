@@ -22,6 +22,18 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+            footer {
+                background: black;
+                padding: 10px 0;
+                width: 100%;
+                position: fixed;
+                bottom: 0;
+            }
+            footer, p {
+                color: white;
+                text-align: center;
+                margin-bottom: -2px;
+            }
         </style>
         <script src="/js/aplicacao.js"></script>
     </head>
@@ -30,7 +42,7 @@
         @yield('content')
         
         <footer>
-            <p> Todos os direitos reservados - Developer Fillipe Anjos</p>
+            <p> <i>Todos os direitos reservados - Developer Fillipe Anjos</i> &#169;</p>
         </footer>
 
     </body>
